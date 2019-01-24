@@ -1,7 +1,5 @@
-var voltage,current,resistance,power;
-
 window.onload=function(){
-
+/*
   document.getElementById("voltage").addEventListener("keydown", function(e) {
       // Enter is pressed
       if (e.keyCode == 13 && isNaN(document.getElementById("voltage").value) != true) {
@@ -52,8 +50,33 @@ window.onload=function(){
       }
   }, false);
 
-  document.getElementById("submitButton").addEventListener("click", function() {
+  */
+  var voltage = document.getElementById("voltage");
+  var current = document.getElementById("current");
+  var resistance = document.getElementById("resistance");
+  var power = document.getElementById("power");
+
+  var submitButton = document.getElementById("submitButton");
+
+  var voltageCheck = document.getElementById("voltageCheck");
+/*
+  submitButton.addEventListener("click", function() {
     console.log("Button pressed.");
   }, false);
+*/
+  //Calculate Voltage
+  voltageCheck.addEventListener("change", function() {
+    if(this.checked) {
+      submitButton.addEventListener("click", function() {
+        console.log("button pressed");
+        if (isNaN(current) == false && isNaN(resistance) == false) {
+          document.getElementById("voltage").value = current * resistance;
+        }
+      })
+    } else {
+
+    }
+  });
+
 
 }

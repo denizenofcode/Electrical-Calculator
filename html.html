@@ -1,7 +1,7 @@
 
 <html>
 <head>
-
+  <script type="text/javascript" src="js.js"></script>
 </head>
 <body>
 <h1>Electrical Calculator</h1>
@@ -13,9 +13,13 @@
     <div>Voltage, Current, Resistance, Power (2 Inputs Required)</div>
     <div>
       <form>
+        <input type="checkbox" id="voltageCheck">
         <input type="text" id="voltage" name="voltage" placeholder="Voltage">
+        <input type="checkbox" id="currentCheck">
         <input type="text" id="current" name="current" placeholder="Current">
+        <input type="checkbox" id="resistanceCheck">
         <input type="text" id="resistance" name="resistance" placeholder="Resistance">
+        <input type="checkbox" id="powerCheck">
         <input type="text" id="power" name="power" placeholder="Power">
         <input type="button" id="submitButton" value="Press Me">
       </form>
@@ -38,6 +42,4 @@
 </div>
 
 </body>
-<script src="js.js">
-</script>
 </html>
