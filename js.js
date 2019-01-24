@@ -1,24 +1,59 @@
-/*
-var count = 0;
-var color ="blue";
+var voltage,current,resistance,power;
 
-var measureType = prompt( "Press: 'a' to convert between inches/centimeters.\nPress 'b' to convert between ");
+window.onload=function(){
 
-if (measureType == 1) {
-  var userNumber = prompt("Enter your measurement in numeral form.");
-  var switchType = prompt("To convert from inches to centimeters enter 1.  For centimeters to inches enter 2.");
-  if (switchType == 1) {
-    console.log(userNumber * 2.54);
-  } else if (switchType == 2) {
-    console.log(userNumber / 2.54);
-  } else {
-    console.log("You entered an incorrect choice for switchType.");
-  }
-} else {
-    console.log("You didn't enter a correct choice for conversion type.  Please try again.");
-}
-*/
+  document.getElementById("voltage").addEventListener("keydown", function(e) {
+      // Enter is pressed
+      if (e.keyCode == 13 && isNaN(document.getElementById("voltage").value) != true) {
+        voltage = document.getElementById("voltage").value;
+        document.getElementById("voltage").style.backgroundColor = "green";
+      }
+      else if (e.keyCode == 13) {
+        voltage = 0;
+        document.getElementById("voltage").value = 0;
+        document.getElementById("voltage").style.backgroundColor = "red";
+      }
+  }, false);
 
-function voltCurResPowCalc() {
-  
+  document.getElementById("current").addEventListener("keydown", function(e) {
+      // Enter is pressed
+      if (e.keyCode == 13 && isNaN(document.getElementById("current").value) != true) {
+        current = document.getElementById("current").value;
+        document.getElementById("current").style.backgroundColor = "green";
+      }
+      else if (e.keyCode == 13) {
+        current = 0;
+        document.getElementById("current").value = 0;
+        document.getElementById("current").style.backgroundColor = "red";
+      }
+  }, false);
+  document.getElementById("resistance").addEventListener("keydown", function(e) {
+      // Enter is pressed
+      if (e.keyCode == 13 && isNaN(document.getElementById("resistance").value) != true) {
+        resistance = document.getElementById("resistance").value;
+        document.getElementById("resistance").style.backgroundColor = "green";
+      }
+      else if (e.keyCode == 13) {
+        resistance = 0;
+        document.getElementById("resistance").value = 0;
+        document.getElementById("resistance").style.backgroundColor = "red";
+      }
+  }, false);
+  document.getElementById("power").addEventListener("keydown", function(e) {
+      // Enter is pressed
+      if (e.keyCode == 13 && isNaN(document.getElementById("power").value) != true) {
+        power = document.getElementById("power").value;
+        document.getElementById("power").style.backgroundColor = "green";
+      }
+      else if (e.keyCode == 13) {
+        power = 0;
+        document.getElementById("power").value = 0;
+        document.getElementById("power").style.backgroundColor = "red";
+      }
+  }, false);
+
+  document.getElementById("submitButton").addEventListener("click", function() {
+    console.log("Button pressed.");
+  }, false);
+
 }
