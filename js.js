@@ -69,7 +69,7 @@ window.onload=function(){
     if(this.checked) {
       submitButton.addEventListener("click", function() {
         console.log("DEBUG Button pressed");
-        if (isNaN(currentVar) == true && isNaN(resistanceVar) == true) {
+        if (isNaN(document.getElementById("current").value) == true && isNaN(document.getElementById("resistance")) == true) {
           document.getElementById("voltage").value = "Voltage = " + document.getElementById("current").value * document.getElementById("resistance").value;
           console.log("DEBUG Line 72-75 Run")
         } else if (isNaN(powerVar) == true && isNaN(resistanceVar) == true) {
