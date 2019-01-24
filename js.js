@@ -51,14 +51,14 @@ window.onload=function(){
   }, false);
 
   */
-  var voltage = document.getElementById("voltage");
-  var current = document.getElementById("current");
-  var resistance = document.getElementById("resistance");
-  var power = document.getElementById("power");
+  var voltageVar;
+  var currentVar;
+  var resistanceVar;
+  var powerVar;
 
-  var submitButton = document.getElementById("submitButton");
+  var submitButtonVar = document.getElementById("submitButton");
 
-  var voltageCheck = document.getElementById("voltageCheck");
+  var voltageCheckVar = document.getElementById("voltageCheck");
 /*
   submitButton.addEventListener("click", function() {
     console.log("Button pressed.");
@@ -68,9 +68,13 @@ window.onload=function(){
   voltageCheck.addEventListener("change", function() {
     if(this.checked) {
       submitButton.addEventListener("click", function() {
-        console.log("button pressed");
-        if (isNaN(current) == false && isNaN(resistance) == false) {
-          document.getElementById("voltage").value = current * resistance;
+        console.log("DEBUG Button pressed");
+        if (isNaN(currentVar) == true && isNaN(resistanceVar) == true) {
+          document.getElementById("voltage").value = "Voltage = " + document.getElementById("current").value * document.getElementById("resistance").value;
+          console.log("DEBUG Line 72-75 Run")
+        } else if (isNaN(powerVar) == true && isNaN(resistanceVar) == true) {
+          document.getElementById("voltage").value = "Voltage = " + Math.sqrt(document.getElementById("power").value * document.getElementById("resistance").value);
+          console.log("DEBUG Line 75-77 Run")
         }
       })
     } else {
