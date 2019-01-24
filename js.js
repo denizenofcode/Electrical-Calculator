@@ -51,30 +51,26 @@ window.onload=function(){
   }, false);
 
   */
-  var voltageVar;
-  var currentVar;
-  var resistanceVar;
-  var powerVar;
 
   var submitButtonVar = document.getElementById("submitButton");
-
   var voltageCheckVar = document.getElementById("voltageCheck");
-/*
-  submitButton.addEventListener("click", function() {
-    console.log("Button pressed.");
-  }, false);
-*/
-  //Calculate Voltage
+
+  //VOLTAGE CALCULATOR
   voltageCheck.addEventListener("change", function() {
     if(this.checked) {
       submitButton.addEventListener("click", function() {
-        console.log("DEBUG Button pressed");
-        if (isNaN(document.getElementById("current").value) == true && isNaN(document.getElementById("resistance")) == true) {
-          document.getElementById("voltage").value = "Voltage = " + document.getElementById("current").value * document.getElementById("resistance").value;
-          console.log("DEBUG Line 72-75 Run")
-        } else if (isNaN(powerVar) == true && isNaN(resistanceVar) == true) {
-          document.getElementById("voltage").value = "Voltage = " + Math.sqrt(document.getElementById("power").value * document.getElementById("resistance").value);
-          console.log("DEBUG Line 75-77 Run")
+        //Calculate Voltage using current & resistance
+        if (isNaN(document.getElementById("current").value) && isNaN(document.getElementById("resistance"))) {
+          document.getElementById("voltage").value = "Voltage = " + (document.getElementById("current").value * document.getElementById("resistance").value);
+          console.log("DEBUG A");
+        //Calculate Voltage using power & resistance
+      } else if (isNaN(document.getElementById("power")) && isNaN(document.getElementById("resistance"))) {
+          document.getElementById("voltage").value = "Voltage = " + (Math.sqrt(document.getElementById("power").value * document.getElementById("resistance").value));
+          console.log("DEBUG B");
+        //Calculate Voltage using power & current
+      } else if (isNaN(document.getElementById("power")) && isNaN("current")) {
+          document.getElementById("voltage").value = "Voltage = " + (document.getElementById("power").value / document.getElementById("current").value);
+          console.log("DEBUG C");
         }
       })
     } else {
