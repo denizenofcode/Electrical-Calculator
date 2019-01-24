@@ -56,25 +56,25 @@ window.onload=function(){
   var voltageCheckVar = document.getElementById("voltageCheck");
 
   //VOLTAGE CALCULATOR
-  voltageCheck.addEventListener("change", function() {
+  voltageCheckVar.addEventListener("change", function() {
     if(this.checked) {
-      submitButton.addEventListener("click", function() {
+      submitButtonVar.addEventListener("click", function() {
         //Calculate Voltage using current & resistance
-        if (isNaN(document.getElementById("current").value) && isNaN(document.getElementById("resistance"))) {
+        if (isNaN(document.getElementById("current").value) && isNaN(document.getElementById("resistance").value)) {
           document.getElementById("voltage").value = "Voltage = " + (document.getElementById("current").value * document.getElementById("resistance").value);
           console.log("DEBUG A");
         //Calculate Voltage using power & resistance
-      } else if (isNaN(document.getElementById("power")) && isNaN(document.getElementById("resistance"))) {
+      } else if (isNaN(document.getElementById("power").value) && isNaN(document.getElementById("resistance").value)) {
           document.getElementById("voltage").value = "Voltage = " + (Math.sqrt(document.getElementById("power").value * document.getElementById("resistance").value));
           console.log("DEBUG B");
         //Calculate Voltage using power & current
-      } else if (isNaN(document.getElementById("power")) && isNaN("current")) {
+      } else if (isNaN(document.getElementById("power").value) && isNaN(document.getElementById("current").value)) {
           document.getElementById("voltage").value = "Voltage = " + (document.getElementById("power").value / document.getElementById("current").value);
           console.log("DEBUG C");
         }
       })
     } else {
-
+        console.log("Not checked");
     }
   });
 
