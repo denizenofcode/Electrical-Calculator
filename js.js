@@ -57,6 +57,10 @@ var resistance;
 var power;
 
 window.onload = function() {
+    //Clear Button
+    document.getElementById("clearVCRP").addEventListener("click", function() {
+      clearVCRP();
+    });
 
     var submitButtonVar = document.getElementById("submitButton");
     var voltageCheckVar = document.getElementById("voltageCheck");
@@ -82,15 +86,15 @@ window.onload = function() {
 
                 //Calculate Voltage using Current & Resistance
                 if (power == "" || power.length == 0 || power == null) {
-                    document.getElementById("voltage").value = "Voltage = " + (current * resistance);
+                    document.getElementById("voltage").value = "Voltage = " + (current * resistance) + " volts.";
                 }
                 //Calculate Voltage using Power & Resistance
                 if (current == "" || current.length == 0 || current == null) {
-                    document.getElementById("voltage").value = "Voltage = " + (Math.sqrt(power * resistance));
+                    document.getElementById("voltage").value = "Voltage = " + (Math.sqrt(power * resistance)) + " volts.";
                 }
                 //Calculate Voltage using Power & Current
                 if (resistance == "" || resistance.length == 0 || resistance == null) {
-                    document.getElementById("voltage").value = "Voltage = " + (power / current);
+                    document.getElementById("voltage").value = "Voltage = " + (power / current) + " volts.";
                 }
             });
         }
@@ -113,15 +117,15 @@ window.onload = function() {
 
                 //Calculate Current using Power & Resistance
                 if (voltage == "" || voltage.length == 0 || voltage == null) {
-                    document.getElementById("current").value = "Current = " + (Math.sqrt(power * resistance));
+                    document.getElementById("current").value = "Current = " + (Math.sqrt(power * resistance)) + " amperes.";
                 }
                 //Calculate Current using Power & Voltage
                 if (resistance == "" || resistance.length == 0 || resistance == null) {
-                    document.getElementById("current").value = "Current = " + (power / voltage);
+                    document.getElementById("current").value = "Current = " + (power / voltage) + " amperes.";
                 }
                 //Calculate Current using Voltage & Resistance
                 if (power == "" || power.length == 0 || power == null) {
-                    document.getElementById("current").value = "Current = " + (voltage / resistance);
+                    document.getElementById("current").value = "Current = " + (voltage / resistance) + " amperes.";
                 }
             });
         }
@@ -144,15 +148,15 @@ window.onload = function() {
 
                 //Calculate Resistance using Voltage & Power
                 if (current == "" || current.length == 0 || current == null) {
-                    document.getElementById("resistance").value = "Resistance = " + (Math.pow(voltage, 2) / power);
+                    document.getElementById("resistance").value = "Resistance = " + (Math.pow(voltage, 2) / power) + " Ohms.";
                 }
                 //Calculate Resistance using Power & Current
                 if (voltage == "" || voltage.length == 0 || voltage == null) {
-                    document.getElementById("resistance").value = "Resistance = " + (power / (Math.pow(current, 2)));
+                    document.getElementById("resistance").value = "Resistance = " + (power / (Math.pow(current, 2))) + " Ohms.";
                 }
                 //Calculate Resistance using Voltage & Current
                 if (power == "" || power.length == 0 || power == null) {
-                    document.getElementById("resistance").value = "Resistance = " + (voltage / current);
+                    document.getElementById("resistance").value = "Resistance = " + (voltage / current) + " Ohms.";
                 }
             });
         }
@@ -175,15 +179,15 @@ window.onload = function() {
 
                 //Calculate Power using Resistance & Current
                 if (voltage == "" || voltage.length == 0 || voltage == null) {
-                    document.getElementById("power").value = "Power = " + (resistance * Math.pow(current, 2));
+                    document.getElementById("power").value = "Power = " + (resistance * Math.pow(current, 2)) + " Watts.";
                 }
                 //Calculate Power using Current & Voltage
                 if (resistance == "" || resistance.length == 0 || resistance == null) {
-                    document.getElementById("power").value = "Power = " + (current * voltage);
+                    document.getElementById("power").value = "Power = " + (current * voltage) + " Watts.";
                 }
                 //Calculate Power using Voltage & Resistance
                 if (current == "" || current.length == 0 || current == null) {
-                    document.getElementById("power").value = "Power = " + (Math.pow(voltage, 2) / resistance);
+                    document.getElementById("power").value = "Power = " + (Math.pow(voltage, 2) / resistance) + " Watts.";
                 }
             });
         }
@@ -195,4 +199,22 @@ function setVCRPCalcValues() {
   current = document.getElementById("current").value;
   resistance = document.getElementById("resistance").value;
   power = document.getElementById("power").value;
+}
+
+function clearVCRP() {
+  console.log("DEBUG - Ran clearVCRP");
+  document.getElementById("voltage").value = "";
+  document.getElementById("current").value = "";
+  document.getElementById("resistance").value = "";
+  document.getElementById("power").value = "";
+
+  document.getElementById("voltageCheck").checked = false;
+  document.getElementById("currentCheck").checked = false;
+  document.getElementById("resistanceCheck").checked = false;
+  document.getElementById("powerCheck").checked = false;
+
+  voltage = 0;
+  current = 0;
+  resistance = 0;
+  power = 0;
 }
